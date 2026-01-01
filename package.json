@@ -1,0 +1,21 @@
+{
+  "name": "bothaj-discord-bot",
+  "version": "1.0.0",
+  "description": "A bot for me with random unrelated ideas!",
+  "main": "./src/index.ts",
+  "repository": "https://github.com/lunarwanderer13/bothaj-discord-bot",
+  "author": "LunarWanderer13",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "discord.js": "^14.25.1",
+    "dotenv": "^17.2.3",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}
