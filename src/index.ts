@@ -3,6 +3,7 @@ import "dotenv/config"
 
 // Import commands
 import { Ping } from "./commands/ping"
+import { Tarot } from "./commands/tarot"
 
 // Import events
 import clientReady from "./events/clientReady"
@@ -18,7 +19,8 @@ export interface Command {
 }
 
 export const Commands: Command[] = [
-    Ping
+    Ping,
+    Tarot
 ]
 
 clientReady(client)
