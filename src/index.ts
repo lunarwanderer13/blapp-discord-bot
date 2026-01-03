@@ -1,11 +1,15 @@
 import { Client, GatewayIntentBits, SlashCommandBuilder, SlashCommandSubcommandsOnlyBuilder, SlashCommandOptionsOnlyBuilder, ChatInputCommandInteraction, ColorResolvable } from "discord.js"
-import "dotenv/config"
-
 import { Command } from "./utils/config"
+import "dotenv/config"
 
 // Import commands
 import { Ping } from "./commands/ping"
 import { Tarot } from "./commands/tarot"
+
+export const Commands: Command[] = [
+    Ping,
+    Tarot
+]
 
 // Import events
 import clientReady from "./events/clientReady"
@@ -14,11 +18,6 @@ import interactionCreate from "./events/interactionCreate"
 export const client: Client<boolean> = new Client({
     intents: Object.values(GatewayIntentBits).filter((intent): intent is number => typeof intent === "number")
 })
-
-export const Commands: Command[] = [
-    Ping,
-    Tarot
-]
 
 clientReady(client)
 interactionCreate(client)
