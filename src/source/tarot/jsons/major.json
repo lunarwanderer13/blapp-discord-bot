@@ -1,0 +1,222 @@
+[
+    {
+        "name": "The Fool",
+        "type": "major_arcana",
+        "number": "O",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "fool"
+    },
+    {
+        "name": "The Magician",
+        "type": "major_arcana",
+        "number": "I",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "magician"
+    },
+    {
+        "name": "The High Priestess",
+        "type": "major_arcana",
+        "number": "II",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "priestess"
+    },
+    {
+        "name": "The Empress",
+        "type": "major_arcana",
+        "number": "III",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "empress"
+    },
+    {
+        "name": "The Emperor",
+        "type": "major_arcana",
+        "number": "IV",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "emperor"
+    },
+    {
+        "name": "The Hierophant",
+        "type": "major_arcana",
+        "number": "V",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "hierophant"
+    },
+    {
+        "name": "The Lovers",
+        "type": "major_arcana",
+        "number": "VI",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "lovers"
+    },
+    {
+        "name": "The Chariot",
+        "type": "major_arcana",
+        "number": "VII",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "chariot"
+    },
+    {
+        "name": "Strength",
+        "type": "major_arcana",
+        "number": "VIII",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "strength"
+    },
+    {
+        "name": "The Hermit",
+        "type": "major_arcana",
+        "number": "IX",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "hermit"
+    },
+    {
+        "name": "The Wheel of Fortune",
+        "type": "major_arcana",
+        "number": "X",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "fortune"
+    },
+    {
+        "name": "Justice",
+        "type": "major_arcana",
+        "number": "XI",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "justice"
+    },
+    {
+        "name": "The Hanged Man",
+        "type": "major_arcana",
+        "number": "XII",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "hanged"
+    },
+    {
+        "name": "The Death",
+        "type": "major_arcana",
+        "number": "XIII",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "death"
+    },
+    {
+        "name": "Temperance",
+        "type": "major_arcana",
+        "number": "XIV",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "temperance"
+    },
+    {
+        "name": "The Devil",
+        "type": "major_arcana",
+        "number": "XV",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "devil"
+    },
+    {
+        "name": "The Tower",
+        "type": "major_arcana",
+        "number": "XVI",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "tower"
+    },
+    {
+        "name": "The Star",
+        "type": "major_arcana",
+        "number": "XVII",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "star"
+    },
+    {
+        "name": "The Moon",
+        "type": "major_arcana",
+        "number": "XVIII",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "moon"
+    },
+    {
+        "name": "The Sun",
+        "type": "major_arcana",
+        "number": "XIX",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "sun"
+    },
+    {
+        "name": "Judgement",
+        "type": "major_arcana",
+        "number": "XX",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "judgement"
+    },
+    {
+        "name": "The World",
+        "type": "major_arcana",
+        "number": "XXI",
+        "upright_meaning": "MEANING_HERE",
+        "reversed_meaning": "MEANING_HERE",
+        "upright_url": "URL_HERE",
+        "reversed_url": "URL_HERE",
+        "query": "world"
+    }
+]
