@@ -5,8 +5,6 @@
         "number": "O",
         "upright_meaning": "innocence, new beginnings, free spirit",
         "reversed_meaning": "recklessness, taken advantage of, inconsideration",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "fool"
     },
     {
@@ -15,8 +13,6 @@
         "number": "I",
         "upright_meaning": "willpower, desire, creation, manifestation",
         "reversed_meaning": "trickery, illusions, out of touch",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "magician"
     },
     {
@@ -25,8 +21,6 @@
         "number": "II",
         "upright_meaning": "intuitive, unconscious, inner voice",
         "reversed_meaning": "lack of center, lost inner voice, repressed feelings",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "priestess"
     },
     {
@@ -35,8 +29,6 @@
         "number": "III",
         "upright_meaning": "motherhood, fertility, nature",
         "reversed_meaning": "dependence, smothering, emptiness, nosiness",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "empress"
     },
     {
@@ -45,8 +37,6 @@
         "number": "IV",
         "upright_meaning": "authority, structure, control, fatherhood",
         "reversed_meaning": "tyranny, rigidity, coldness",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "emperor"
     },
     {
@@ -55,8 +45,6 @@
         "number": "V",
         "upright_meaning": "tradition, conformity, morality, ethics",
         "reversed_meaning": "rebellion, subversiveness, new approaches",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "hierophant"
     },
     {
@@ -65,8 +53,7 @@
         "number": "VI",
         "upright_meaning": "partnerships, duality, union",
         "reversed_meaning": "loss of balance, one-sidedness, disharmony",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
+        "url": "src/source/tarot/images/lovers.png",
         "query": "lovers"
     },
     {
@@ -75,8 +62,6 @@
         "number": "VII",
         "upright_meaning": "direction, control, willpower",
         "reversed_meaning": "lack of control, lack of direction, aggression",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "chariot"
     },
     {
@@ -85,8 +70,6 @@
         "number": "VIII",
         "upright_meaning": "inner strength, bravery, compassion, focus",
         "reversed_meaning": "self doubt, weakness, insecurity",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "strength"
     },
     {
@@ -95,8 +78,6 @@
         "number": "IX",
         "upright_meaning": "contemplation, search for truth, inner guidance",
         "reversed_meaning": "loneliness, isolation, lost your way",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "hermit"
     },
     {
@@ -105,8 +86,6 @@
         "number": "X",
         "upright_meaning": "change, cycles, inevitable fate",
         "reversed_meaning": "no control, clinging to control, bad luck",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "fortune"
     },
     {
@@ -115,8 +94,6 @@
         "number": "XI",
         "upright_meaning": "cause and effect, clarity, truth",
         "reversed_meaning": "dishonesty, unaccountability, unfairness",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "justice"
     },
     {
@@ -125,8 +102,6 @@
         "number": "XII",
         "upright_meaning": "sacrifice, release, martyrdom",
         "reversed_meaning": "stalling, needless sacrifice, fear of sacrifice",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "hanged"
     },
     {
@@ -135,8 +110,6 @@
         "number": "XIII",
         "upright_meaning": "end of cycle, beginnings, change, metamorphosis",
         "reversed_meaning": "fear of change, holding on, stagnation, decay",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "death"
     },
     {
@@ -145,8 +118,6 @@
         "number": "XIV",
         "upright_meaning": "middle path, patience, finding meaning",
         "reversed_meaning": "extremes, excess, lack of balance",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "temperance"
     },
     {
@@ -155,8 +126,6 @@
         "number": "XV",
         "upright_meaning": "addiction, materialism, playfulness",
         "reversed_meaning": "freedom, release, restoring control",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "devil"
     },
     {
@@ -165,8 +134,6 @@
         "number": "XVI",
         "upright_meaning": "sudden upheaval, broken pride, disaster",
         "reversed_meaning": "disaster avoided, delayed disaster, fear of suffering",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "tower"
     },
     {
@@ -175,8 +142,6 @@
         "number": "XVII",
         "upright_meaning": "hope, faith, rejuvenation",
         "reversed_meaning": "faithlessness, discouragement, insecurity",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "star"
     },
     {
@@ -185,8 +150,6 @@
         "number": "XVIII",
         "upright_meaning": "unconscious, illusions, intuition",
         "reversed_meaning": "confusion, fear, misinterpretation",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "moon"
     },
     {
@@ -195,8 +158,6 @@
         "number": "XIX",
         "upright_meaning": "joy, success, celebration, positivity",
         "reversed_meaning": "negativity, depression, sadness",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "sun"
     },
     {
@@ -205,8 +166,6 @@
         "number": "XX",
         "upright_meaning": "reflection, reckoning, awakening",
         "reversed_meaning": "lack of self awareness, doubt, self loathing",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "judgement"
     },
     {
@@ -215,8 +174,6 @@
         "number": "XXI",
         "upright_meaning": "fulfillment, harmony, completion",
         "reversed_meaning": "incompletion, no closure",
-        "upright_url": "URL_HERE",
-        "reversed_url": "URL_HERE",
         "query": "world"
     }
 ]
