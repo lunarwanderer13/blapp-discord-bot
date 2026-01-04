@@ -9,7 +9,7 @@ export const Ping: Command = {
 
     async execute(interaction: ChatInputCommandInteraction) {
         await interaction.reply({
-            content: `Pong!`,
+            content: `Pong! *${interaction.client.ws.ping}ms*`,
             flags: MessageFlags.Ephemeral
         })
     }
