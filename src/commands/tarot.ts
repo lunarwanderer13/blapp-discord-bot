@@ -22,10 +22,6 @@ interface MinorArcana extends TarotCard {
     element: string
 }
 
-const major_cards: MajorArcana[] = JSON.parse(fs.readFileSync("src/source/tarot/jsons/major.json", "utf-8"))
-const minor_cards: MinorArcana[] = JSON.parse(fs.readFileSync("src/source/tarot/jsons/minor.json", "utf-8"))
-const all_cards: (MajorArcana | MinorArcana)[] = [...major_cards, ...minor_cards]
-
 export const Tarot: Command = {
     data: new SlashCommandBuilder()
         .setName("tarot")
@@ -83,42 +79,70 @@ export const Tarot: Command = {
         ),
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
+        const major_cards: MajorArcana[] = JSON.parse(fs.readFileSync("src/source/tarot/jsons/major.json", "utf-8"))
+        const minor_cards: MinorArcana[] = JSON.parse(fs.readFileSync("src/source/tarot/jsons/minor.json", "utf-8"))
+        const all_cards: (MajorArcana | MinorArcana)[] = [...major_cards, ...minor_cards]
+
         const subcommand: string = interaction.options.getSubcommand()
         const hidden: boolean = interaction.options.getBoolean("hidden") ?? false
+
+        const cards_emoji: Emoji | undefined = Emojis.find(emoji => emoji.name === "cards")
+        if (!cards_emoji) return
+        const cards_emoji_string: string = `<:${cards_emoji.name}:${cards_emoji.id}>`
 
         switch (subcommand) {
             case "draw":
                 const range: string = interaction.options.getString("range") ?? "major"
+                const face: string = interaction.options.getString("face") ?? "both"
+                let reversed: boolean = false
+
+                let drawn_card: MajorArcana | MinorArcana | undefined
+                if (range === "major") drawn_card = major_cards[Math.floor(Math.random() * major_cards.length)]
+                if (range === "minor") drawn_card = minor_cards[Math.floor(Math.random() * minor_cards.length)]
+                if (range === "both") drawn_card = all_cards[Math.floor(Math.random() * all_cards.length)]
+                if (!drawn_card) break
+
+                if (face === "upright") reversed = false
+                if (face === "reversed") reversed = true
+                if (face === "both") reversed = Math.random() <= 0.333
 
                 const draw_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
-                    .setTitle(`I draw...`)
 
-                await interaction.reply({ embeds: [draw_embed] })
+                const drawn_image_buffer = await sharp(`src/source/tarot/images/${drawn_card.query}.png`)
+                if (reversed) drawn_image_buffer.rotate(180)
+                drawn_image_buffer.png().toBuffer()
+
+                const drawn_image_attachment = new AttachmentBuilder(drawn_image_buffer, { name: `${drawn_card.query}.png` })
+                draw_embed.setImage(`attachment://${drawn_image_attachment.name}`)
+
+                if (drawn_card.type === "major_arcana") draw_embed.setTitle(`:sparkles: I draw... ${drawn_card.name} ${cards_emoji_string}`)
+                if (drawn_card.type === "minor_arcana") draw_embed.setTitle(`:sparkles: I draw... the ${drawn_card.name} of ${drawn_card.suit} ${cards_emoji_string}`)
+
+                if (!hidden) {
+                    await interaction.reply({ embeds: [draw_embed], files: [drawn_image_attachment] })
+                } else {
+                    await interaction.reply({ embeds: [draw_embed], files: [drawn_image_attachment], flags: MessageFlags.Ephemeral })
+                }
                 break
             case "info":
                 const card_option: string | null = interaction.options.getString("card")
                 if (!card_option) break
-                const card: MajorArcana | MinorArcana | undefined = all_cards.find(card => card_option.includes(card.query))
-
+                const card = all_cards.find(card => card_option.includes(card.query))
                 if (!card) {
                     await interaction.reply({ content: "I couldn't find the card you asked for, sorry!", flags: MessageFlags.Ephemeral })
                     break
                 }
 
-                const cards_emoji: Emoji | undefined = Emojis.find(emoji => emoji.name === "cards")
-                if (!cards_emoji) break
-                const cards_emoji_string: string = `<:${cards_emoji.name}:${cards_emoji.id}>`
-
                 const info_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
 
-                const image_buffer = await sharp(`src/source/tarot/images/${card.query}.png`)
+                const info_image_buffer = await sharp(`src/source/tarot/images/${card.query}.png`)
                     .png()
                     .toBuffer()
 
-                const image_attachment = new AttachmentBuilder(image_buffer, { name: `${card.query}.png` })
-                info_embed.setImage(`attachment://${image_attachment.name}`)
+                const info_image_attachment = new AttachmentBuilder(info_image_buffer, { name: `${card.query}.png` })
+                info_embed.setImage(`attachment://${info_image_attachment.name}`)
 
                 info_embed.setFields(
                     {
@@ -153,9 +177,9 @@ export const Tarot: Command = {
                 }
 
                 if (!hidden) {
-                    await interaction.reply({ embeds: [info_embed], files: [image_attachment] })
+                    await interaction.reply({ embeds: [info_embed], files: [info_image_attachment] })
                 } else {
-                    await interaction.reply({ embeds: [info_embed], files: [image_attachment], flags: MessageFlags.Ephemeral })
+                    await interaction.reply({ embeds: [info_embed], files: [info_image_attachment], flags: MessageFlags.Ephemeral })
                 }
                 break
         }
