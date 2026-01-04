@@ -39,5 +39,17 @@ export const Emojis: Emoji[] = [
     {
         id: "1457175965515120803",
         name: "cards"
+    },
+    {
+        id: "1457465546546217073",
+        name: "card"
+    },
+    {
+        id: "1457465834946428948",
+        name: "card_left"
+    },
+    {
+        id: "1457465973853651110",
+        name: "card_right"
     }
 ]
