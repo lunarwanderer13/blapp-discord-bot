@@ -109,7 +109,7 @@ export const Tarot: Command = {
                 const draw_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
 
-                const drawn_image_buffer = await sharp(`src/source/tarot/images/${drawn_card.query}.png`)
+                const drawn_image_buffer = await sharp(`src/source/tarot/images/${drawn_card.type}/${drawn_card.query}.png`)
                 if (reversed) drawn_image_buffer.rotate(180)
                 drawn_image_buffer.png().toBuffer()
 
@@ -137,7 +137,7 @@ export const Tarot: Command = {
                 const info_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
 
-                const info_image_buffer = await sharp(`src/source/tarot/images/${card.query}.png`)
+                const info_image_buffer = await sharp(`src/source/tarot/images/${card.type}/${card.query}.png`)
                     .png()
                     .toBuffer()
 
