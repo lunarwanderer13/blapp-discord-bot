@@ -23,6 +23,8 @@ async function handleSlashCommand(interaction: ChatInputCommandInteraction): Pro
             .setDescription("We wa we wa :3\nI sent your IP to Luna :3")
             .setThumbnail("https://cdn.discordapp.com/attachments/1352287683468202075/1352294875936325672/image3.gif")
 
+        console.log(`${interaction.user.username} (${interaction.user.id}) tried running ${slashCommand.data.name}, despite not being a trusted friend.`)
+
         await interaction.reply({
             embeds: [fail_embed],
             flags: MessageFlags.Ephemeral
