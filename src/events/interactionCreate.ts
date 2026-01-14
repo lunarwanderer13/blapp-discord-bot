@@ -3,6 +3,8 @@ import { Commands } from "./../index"
 import { Color } from "./../utils/config"
 import "dotenv/config"
 
+const friends: string[] = process.env.TRUSTED_IDS!.split(" ")
+
 async function handleSlashCommand(interaction: ChatInputCommandInteraction): Promise<void> {
     const slashCommand = Commands.find(command => command.data.name === interaction.commandName)
 
@@ -14,7 +16,7 @@ async function handleSlashCommand(interaction: ChatInputCommandInteraction): Pro
         return
     }
 
-    if (interaction.user.id !== process.env.OWNER_ID) {
+    if (interaction.user.id !== process.env.OWNER_ID! && friends.includes(interaction.user.id) ) {
         const fail_embed: EmbedBuilder = new EmbedBuilder()
             .setColor(Color.accent)
             .setTitle("I only listen to Luna's requests :3")
