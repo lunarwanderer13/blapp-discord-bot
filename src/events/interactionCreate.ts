@@ -8,14 +8,17 @@ const friends: string[] = process.env.TRUSTED_IDS!.split(" ")
 async function handleSlashCommand(interaction: ChatInputCommandInteraction): Promise<void> {
     const slashCommand = Commands.find(command => command.data.name === interaction.commandName)
 
+    // Command not found
     if (!slashCommand) {
         await interaction.reply({
             content: "An error has occured",
             flags: MessageFlags.Ephemeral
         })
+
         return
     }
 
+    // Non-authorized user
     if (interaction.user.id !== process.env.OWNER_ID! && !friends.includes(interaction.user.id)) {
         const fail_embed: EmbedBuilder = new EmbedBuilder()
             .setColor(Color.accent)
@@ -29,6 +32,25 @@ async function handleSlashCommand(interaction: ChatInputCommandInteraction): Pro
             embeds: [fail_embed],
             flags: MessageFlags.Ephemeral
         })
+
+        return
+    }
+
+    // Debug-mode message
+    if (interaction.user.id !== process.env.OWNER_ID! && JSON.parse(process.env.DEBUG!)) {
+        const debug_embed: EmbedBuilder = new EmbedBuilder()
+            .setColor(Color.accent)
+            .setTitle("Sorry! I'm currently in debug mode!")
+            .setDescription("Luna is currently working on me and doesn't want anyone to interfere, DM her about it or check back in later :3")
+            .setThumbnail("https://cdn.discordapp.com/attachments/1352287683468202075/1352294875936325672/image3.gif")
+
+        console.log(`${interaction.user.username} (${interaction.user.id}) tried running ${slashCommand.data.name}, but I'm currently in debug mode!`)
+
+        await interaction.reply({
+            embeds: [debug_embed],
+            flags: MessageFlags.Ephemeral
+        })
+
         return
     }
 
