@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, MessageFlags, Embed } from "discord.js"
+import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "discord.js"
 import { Command, Color } from "./../utils/config"
 import axios from "axios"
 
