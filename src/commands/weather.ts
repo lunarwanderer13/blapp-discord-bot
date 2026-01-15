@@ -39,12 +39,6 @@ interface CurrentWeather {
     }
 }
 
-interface Error {
-    error: true
-    code: number,
-    message: string
-}
-
 export const Weather: Command = {
     data: new SlashCommandBuilder()
         .setName("weather")
@@ -92,52 +86,56 @@ export const Weather: Command = {
         const query: string = interaction.options.getString("query") ?? "auto:ip"
         const language: string = interaction.options.getString("language") ?? "en"
         const hidden: boolean = interaction.options.getBoolean("hidden") ?? false
+        let response
 
-        const response = await axios.get<CurrentWeather | Error>(
-            "https://api.weatherapi.com/v1/current.json",
-            {
-                params: {
-                    key: process.env.WEATHER_API,
-                    q: query,
-                    lang: language
+        try {
+            response = await axios.get<CurrentWeather>(
+                "https://api.weatherapi.com/v1/current.json",
+                {
+                    params: {
+                        key: process.env.WEATHER_API,
+                        q: query,
+                        lang: language
+                    }
                 }
+            )
+        } catch(error) {
+            if (axios.isAxiosError(error) && error.response?.data.error) {
+                const error_embed: EmbedBuilder = new EmbedBuilder()
+                    .setColor(Color.accent)
+                    .setTitle(`Error code ${error.response.data.error.code}: ${error.response.data.error.error}`)
+                    .setDescription(error.response.data.error.message)
+
+                interaction.reply({ embeds: [error_embed], flags: MessageFlags.Ephemeral })
             }
-        )
+            return
+        }
 
-        if (!response.data.error) {
-            const location = response.data.location
-            const current = response.data.current
+        const location = response.data.location
+        const current = response.data.current
 
-            let title: string = location.name
-            if (location.region) title += `, ${location.region}`
-            title += `, ${location.country} `
+        let title: string = location.name
+        if (location.region) title += `, ${location.region}`
+        title += `, ${location.country} `
 
-            const weather_embed: EmbedBuilder = new EmbedBuilder()
-                .setColor(Color.primary)
-                .setTitle(title)
-                .setThumbnail(`https:${current.condition.icon}`)
-                .addFields(
-                    { name: "Weather", value: current.condition.text, inline: false },
-                    { name: "Temperature", value: `${current.temp_c}℃ / ${current.temp_f}℉`, inline: true},
-                    { name: "Wind", value: `${current.wind_kph}kph / ${current.wind_mph}mph ${current.wind_dir}`, inline: true},
-                    { name: "Pressure", value: `${current.pressure_mb}hPa / ${current.pressure_in}inHg`, inline: true},
-                    { name: "Precipitation", value: `${current.precip_mm}mm / ${current.precip_in}in`, inline: true},
-                    { name: "Humidity", value: `${current.humidity}%`, inline: true},
-                    { name: "Clouds", value: `${current.cloud}%`, inline: true}
-                )
+        const weather_embed: EmbedBuilder = new EmbedBuilder()
+            .setColor(Color.primary)
+            .setTitle(title)
+            .setThumbnail(`https:${current.condition.icon}`)
+            .addFields(
+                { name: "Weather", value: current.condition.text, inline: false },
+                { name: "Temperature", value: `${current.temp_c}℃ / ${current.temp_f}℉`, inline: true},
+                { name: "Wind", value: `${current.wind_kph}kph / ${current.wind_mph}mph ${current.wind_dir}`, inline: true},
+                { name: "Pressure", value: `${current.pressure_mb}hPa / ${current.pressure_in}inHg`, inline: true},
+                { name: "Precipitation", value: `${current.precip_mm}mm / ${current.precip_in}in`, inline: true},
+                { name: "Humidity", value: `${current.humidity}%`, inline: true},
+                { name: "Clouds", value: `${current.cloud}%`, inline: true}
+            )
 
-            if (!hidden) {
-                await interaction.reply({ embeds: [weather_embed] })
-            } else {
-                await interaction.reply({ embeds: [weather_embed], flags: MessageFlags.Ephemeral })
-            }
+        if (!hidden) {
+            await interaction.reply({ embeds: [weather_embed] })
         } else {
-            const error_embed: EmbedBuilder = new EmbedBuilder()
-                .setColor(Color.accent)
-                .setTitle(`Error code ${response.data.code}: ${response.data.error}`)
-                .setDescription(response.data.message)
-
-            interaction.reply({ embeds: [error_embed], flags: MessageFlags.Ephemeral })
+            await interaction.reply({ embeds: [weather_embed], flags: MessageFlags.Ephemeral })
         }
     }
 }
