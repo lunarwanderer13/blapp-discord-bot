@@ -6,11 +6,13 @@ import "dotenv/config"
 import { Ping } from "./commands/ping"
 import { Tarot } from "./commands/tarot"
 import { Weather } from "./commands/weather"
+import { Avatar } from "./commands/avatar"
 
 export const Commands: Command[] = [
     Ping,
     Tarot,
-    Weather
+    Weather,
+    Avatar
 ]
 
 // Import events
