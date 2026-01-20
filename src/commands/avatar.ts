@@ -18,7 +18,7 @@ export const Avatar: Command = {
             .setDescription("Whether the avatar owner's username should be censored or not.")
             .setRequired(false)
         )
-        
+
         .addBooleanOption(option => option
             .setName("hidden")
             .setDescription("Whether the message should be hidden or not.")
