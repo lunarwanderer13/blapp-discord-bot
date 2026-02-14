@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, ChatInputCommandInteraction, User, EmbedBuilder, MessageFlags, Embed } from "discord.js"
+import { SlashCommandBuilder, ChatInputCommandInteraction, User, EmbedBuilder, MessageFlags } from "discord.js"
 import { Command, Color } from "./../utils/config"
 
 export const Avatar: Command = {
