@@ -1,6 +1,5 @@
 import { Client, REST, Routes, User } from "discord.js"
 import { Commands } from "./../index"
-import "dotenv/config"
 
 export default (client: Client): void => {
     client.on("clientReady", async () => {

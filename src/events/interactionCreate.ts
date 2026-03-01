@@ -1,7 +1,6 @@
 import { Client, Interaction, ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "discord.js"
 import { Commands } from "./../index"
 import { Color } from "./../utils/config"
-import "dotenv/config"
 
 const friends: string[] = process.env.TRUSTED_IDS!.split(" ")
 
