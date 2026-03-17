@@ -1,12 +1,18 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "discord.js"
 import { Command, Color } from "./../utils/config"
-import { execSync } from 'child_process';
+import { execSync } from 'child_process'
 
 export const Neofetch: Command = {
     data: new SlashCommandBuilder()
         .setName("neofetch")
         .setDescription("display system information of the maschine running this bot")
-        .setContexts([0, 1, 2]),
+        .setContexts([0, 1, 2])
+
+    .addBooleanOption(option => option
+        .setName("hidden")
+        .setDescription("Whether the message should be hidden or not.")
+        .setRequired(false)
+    ),
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
         let stdout: string = execSync('fastfetch --pipe true').toString()
@@ -16,9 +22,12 @@ export const Neofetch: Command = {
 
         const neofetch_embed: EmbedBuilder = new EmbedBuilder()
             .setColor(Color.primary)
-	    .setTitle(`$ fastfetch --pipe true`)
+            .setTitle(`$ fastfetch --pipe true`)
             .setDescription(`\`\`\`\n${stdout}\n\`\`\``)
-
-        await interaction.reply({ embeds: [neofetch_embed] })
+        if (!hidden) {
+            await interaction.reply({ embeds: [neofetch_embed] })
+        } else {
+            await interaction.reply({ embeds: [neofetch_embed], flags: MessageFlags.Ephemeral })
+        }
     }
 }
