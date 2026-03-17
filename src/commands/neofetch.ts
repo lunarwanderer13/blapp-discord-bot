@@ -15,6 +15,8 @@ export const Neofetch: Command = {
     ),
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
+	const hidden: boolean = interaction.options.getBoolean("hidden") ?? false
+
         let stdout: string = execSync('fastfetch --pipe true').toString()
         stdout = stdout.replace(/.\[../, "")
         stdout = stdout.replace(/.\[.../, "\n\n")
