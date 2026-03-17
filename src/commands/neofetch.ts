@@ -16,13 +16,9 @@ export const Neofetch: Command = {
 
         const neofetch_embed: EmbedBuilder = new EmbedBuilder()
             .setColor(Color.primary)
-            .addFields(
-                {
-                    "name": "output",
-                    "value": `\`\`\` ${stdout} \`\`\``,
-                    "inline": true
-                },
-            )
+	    .setTitle(`$ fastfetch --pipe true`)
+            .setDescription(`\`\`\`\n${stdout}\n\`\`\``)
+
         await interaction.reply({ embeds: [neofetch_embed] })
     }
 }
