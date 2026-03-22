@@ -45,7 +45,7 @@ export const Pokewiki: Command = {
 
                 const pokemon_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
-                    .setTitle(`#${pokemon.id} - ${pokemon.name}`)
+                    .setTitle(`#${String(pokemon.id).padStart(3, "0")} - ${pokemon.name}`)
 
                 if (shiny) pokemon_embed.setThumbnail(pokemon.sprites.front_shiny)
                 else pokemon_embed.setThumbnail(pokemon.sprites.front_default)
