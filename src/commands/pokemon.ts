@@ -6,7 +6,7 @@ const poke_api: MainClient = new MainClient()
 
 export const Pokewiki: Command = {
     data: new SlashCommandBuilder()
-        .setName("pokemon")
+        .setName("pokedex")
         .setDescription("Get pokemon info.")
         .setContexts([0, 1, 2])
 
