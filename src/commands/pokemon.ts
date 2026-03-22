@@ -1,0 +1,58 @@
+import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "discord.js"
+import { MainClient, Pokemon } from "pokenode-ts"
+import { Command, Color } from "./../utils/config"
+
+const poke_api: MainClient = new MainClient()
+
+export const Pokewiki: Command = {
+    data: new SlashCommandBuilder()
+        .setName("pokemon")
+        .setDescription("Get pokemon info.")
+        .setContexts([0, 1, 2])
+
+        .addSubcommand(subcommand => subcommand
+            .setName("pokemon")
+            .setDescription("Get info about a pokemon.")
+
+            .addStringOption(option => option
+                .setName("name")
+                .setDescription("The name of the pokemon.")
+                .setRequired(true)
+            )
+
+            .addBooleanOption(option => option
+                .setName("shiny")
+                .setDescription("If the pokemon is shiny or not.")
+                .setRequired(false)
+            )
+
+            .addBooleanOption(option => option
+                .setName("hidden")
+                .setDescription("Whether the message should be hidden or not.")
+                .setRequired(false)
+            )
+        ),
+
+    async execute(interaction: ChatInputCommandInteraction): Promise<void> {
+        const subcommand: string = interaction.options.getSubcommand()
+        const hidden: boolean = interaction.options.getBoolean("hidden") ?? false
+
+        switch (subcommand) {
+            case "pokemon":
+                const name: string = interaction.options.getString("name") ?? "Ditto"
+                const shiny: boolean = interaction.options.getBoolean("shiny") ?? false
+                const pokemon: Pokemon = await poke_api.pokemon.getPokemonByName(name)
+
+                const pokemon_embed: EmbedBuilder = new EmbedBuilder()
+                    .setColor(Color.primary)
+                    .setTitle(`#${pokemon.id} - ${pokemon.name}`)
+
+                if (shiny) pokemon_embed.setThumbnail(pokemon.sprites.front_shiny)
+                else pokemon_embed.setThumbnail(pokemon.sprites.front_default)
+
+                if (!hidden) await interaction.reply({ embeds: [pokemon_embed] })
+                else await interaction.reply({ embeds: [pokemon_embed], flags: MessageFlags.Ephemeral })
+                break
+        }
+    }
+}

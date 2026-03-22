@@ -3,7 +3,7 @@
 Blåpp is a discord app with completely unrelated and mostly unnecessary features. They don't serve any real purpose, and even if they do, only a select number of people would use them.
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.5.2-green.svg)]()
+[![Version](https://img.shields.io/badge/version-1.6.1-green.svg)]()
 
 ## Description
 
