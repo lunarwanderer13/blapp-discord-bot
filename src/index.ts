@@ -8,13 +8,15 @@ import { Tarot } from "./commands/tarot"
 import { Weather } from "./commands/weather"
 import { Avatar } from "./commands/avatar"
 import { Color } from "./commands/color"
+import { Action } from "./commands/action"
 
 export const Commands: Command[] = [
     Ping,
     Tarot,
     Weather,
     Avatar,
-    Color
+    Color,
+    Action
 ]
 
 // Import events
