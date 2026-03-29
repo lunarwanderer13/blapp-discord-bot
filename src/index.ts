@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits, SlashCommandBuilder, SlashCommandSubcommandsOnlyBuilder, SlashCommandOptionsOnlyBuilder, ChatInputCommandInteraction, ColorResolvable } from "discord.js"
+import { Client, GatewayIntentBits } from "discord.js"
 import { Command } from "./utils/config"
 import "dotenv/config"
 
