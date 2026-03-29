@@ -1,6 +1,7 @@
 import {
     SlashCommandBuilder, SlashCommandSubcommandsOnlyBuilder, SlashCommandOptionsOnlyBuilder,
     ChatInputCommandInteraction,
+    EmbedBuilder, MessageFlags,
     ColorResolvable
 } from "discord.js"
 
@@ -53,3 +54,12 @@ export const Emojis: Emoji[] = [
         name: "card_right"
     }
 ]
+
+export async function sendError(interaction: ChatInputCommandInteraction, error: string): Promise<void> {
+    const error_embed: EmbedBuilder = new EmbedBuilder()
+        .setColor(Color.accent)
+        .setTitle("Error code 418: I'm a teapot")
+        .setDescription(error)
+
+    await interaction.reply({ embeds: [error_embed], flags: MessageFlags.Ephemeral })
+}

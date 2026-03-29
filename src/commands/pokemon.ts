@@ -1,6 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, EmbedBuilder, MessageFlags } from "discord.js"
 import { MainClient, Pokemon } from "pokenode-ts"
-import { Command, Color } from "./../utils/config"
+import { Command, Color, sendError } from "./../utils/config"
 
 const poke_api: MainClient = new MainClient()
 
@@ -41,7 +41,15 @@ export const Pokewiki: Command = {
             case "pokemon":
                 const name: string = interaction.options.getString("name") ?? "Ditto"
                 const shiny: boolean = interaction.options.getBoolean("shiny") ?? false
-                const pokemon: Pokemon = await poke_api.pokemon.getPokemonByName(name)
+                
+                // Check if the pokemon of that name exists
+                let pokemon: Pokemon
+                try {
+                    pokemon = await poke_api.pokemon.getPokemonByName(name)
+                } catch {
+                    await sendError(interaction, "A pokemon of that name does not exist!")
+                    break
+                }
 
                 const pokemon_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
