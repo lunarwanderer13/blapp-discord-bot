@@ -39,8 +39,8 @@ export const Action: Command = {
                 const pet_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
 
-                if (target) pet_embed.setTitle(`${interaction.user} pets ${target}!`)
-                else pet_embed.setTitle(`${interaction.user} pets you!`)
+                if (target) pet_embed.setTitle(`${interaction.user.displayName} pets ${target.displayName}!`)
+                else pet_embed.setTitle(`${interaction.user.displayName} pets you!`)
 
                 await interaction.reply({ embeds: [pet_embed] })
                 break
@@ -48,8 +48,8 @@ export const Action: Command = {
                 const kiss_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
 
-                if (target) kiss_embed.setTitle(`${interaction.user} kisses ${target}!`)
-                else kiss_embed.setTitle(`${interaction.user} kisses you!`)
+                if (target) kiss_embed.setTitle(`${interaction.user.displayName} kisses ${target.displayName}!`)
+                else kiss_embed.setTitle(`${interaction.user.displayName} kisses you!`)
 
                 await interaction.reply({ embeds: [kiss_embed] })
                 break
