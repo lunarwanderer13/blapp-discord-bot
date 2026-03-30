@@ -21,11 +21,10 @@ export const Action: Command = {
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
         const subcommand: string = interaction.options.getSubcommand()
+        const target: User | null = interaction.options.getUser("target") ?? null
 
         switch(subcommand) {
             case "pet":
-                const target: User | null = interaction.options.getUser("target")
-
                 const pet_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
 
@@ -33,6 +32,16 @@ export const Action: Command = {
                 else pet_embed.setTitle(`${interaction.user} pets you!`)
 
                 await interaction.reply({ embeds: [pet_embed] })
+                break
+            case "kiss":
+                const kiss_embed: EmbedBuilder = new EmbedBuilder()
+                    .setColor(Color.primary)
+
+                if (target) kiss_embed.setTitle(`${interaction.user} kisses ${target}!`)
+                else kiss_embed.setTitle(`${interaction.user} kisses you!`)
+
+                await interaction.reply({ embeds: [kiss_embed] })
+                break
         }
     }
 }
