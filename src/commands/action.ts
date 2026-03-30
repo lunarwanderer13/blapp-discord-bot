@@ -17,6 +17,17 @@ export const Action: Command = {
                 .setDescription("User to pet.")
                 .setRequired(false)
             )
+        )
+
+        .addSubcommand(subcommand => subcommand
+            .setName("kiss")
+            .setDescription("Kiss someone.")
+
+            .addUserOption(option => option
+                .setName("target")
+                .setDescription("User to kiss.")
+                .setRequired(false)
+            )
         ),
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
