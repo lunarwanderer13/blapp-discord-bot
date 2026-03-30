@@ -55,8 +55,8 @@ export const Pokewiki: Command = {
                     .setColor(Color.primary)
                     .setTitle(`#${String(pokemon.id).padStart(3, "0")} - ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}`)
                     .setFields(
-                        { name: "Height", value: `${pokemon.height}`, inline: true },
-                        { name: "Weight", value: `${pokemon.weight}`, inline: true },
+                        { name: "Height", value: `${pokemon.height / 10}m`, inline: true },
+                        { name: "Weight", value: `${pokemon.weight / 10}kg`, inline: true },
                         { name: "Type", value: pokemon.types.join("/"), inline: true },
                         { name: "Ability", value: pokemon.abilities.join("/"), inline: true }
                     )
