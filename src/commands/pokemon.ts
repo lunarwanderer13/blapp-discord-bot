@@ -54,6 +54,12 @@ export const Pokewiki: Command = {
                 const pokemon_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
                     .setTitle(`#${String(pokemon.id).padStart(3, "0")} - ${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}`)
+                    .setFields(
+                        { name: "Height", value: `${pokemon.height}`, inline: true },
+                        { name: "Weight", value: `${pokemon.weight}`, inline: true },
+                        { name: "Type", value: pokemon.types.join("/"), inline: true },
+                        { name: "Ability", value: pokemon.abilities.join("/"), inline: true }
+                    )
 
                 if (shiny) pokemon_embed.setImage(pokemon.sprites.front_shiny)
                 else pokemon_embed.setImage(pokemon.sprites.front_default)
