@@ -57,8 +57,8 @@ export const Pokewiki: Command = {
                     .setFields(
                         { name: "Height", value: `${pokemon.height / 10}m`, inline: true },
                         { name: "Weight", value: `${pokemon.weight / 10}kg`, inline: true },
-                        { name: "Type", value: pokemon.types.map(type => type.type.name).join("/"), inline: true },
-                        { name: "Ability", value: pokemon.abilities.map(ability => ability.ability.name).join("/"), inline: true }
+                        { name: "Type", value: pokemon.types.map(type => type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1)).join(" / "), inline: true },
+                        { name: "Ability", value: pokemon.abilities.map(ability => ability.ability.name.charAt(0).toUpperCase() + ability.ability.name.slice(1).replaceAll("-", " ")).join(" / "), inline: true }
                     )
 
                 if (shiny) pokemon_embed.setImage(pokemon.sprites.front_shiny)
