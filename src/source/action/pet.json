@@ -1,0 +1,15 @@
+{
+    "targetted": [
+        "<user> pet <target>!",
+        "<target> was pet by <user>!",
+        "<user> gave <target> a pet!",
+        "<user> gave <target> a head pat!"
+    ],
+    "unspecified": [
+        "<user> pet you!",
+        "You were pet by <user>!",
+        "<user> gave you a pet!",
+        "<user> gave you a head pat!"
+    ]
+}
+
