@@ -2,6 +2,11 @@ import { SlashCommandBuilder, ChatInputCommandInteraction, User, AttachmentBuild
 import { Command, Color } from "./../utils/config"
 import fs from "fs"
 
+interface ActionReplies {
+    targetted?: string[]
+    unspecified: string[]
+}
+
 export const Action: Command = {
     data: new SlashCommandBuilder()
         .setName("action")
@@ -32,27 +37,23 @@ export const Action: Command = {
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
         const subcommand: string = interaction.options.getSubcommand()
+
+        const user: User = interaction.user
         const target: User | null = interaction.options.getUser("target") ?? null
 
-        switch(subcommand) {
-            case "kiss":
-                const kiss_embed: EmbedBuilder = new EmbedBuilder()
-                    .setColor(Color.primary)
+        const action_replies: ActionReplies = JSON.parse(fs.readFileSync(`src/source/action/${subcommand}.json`, "utf-8"))
+        let reply: string
 
-                if (target) kiss_embed.setTitle(`${interaction.user.displayName} kisses ${target.displayName}!`)
-                else kiss_embed.setTitle(`${interaction.user.displayName} kisses you!`)
+        if (target && action_replies.targetted) reply = action_replies.targetted[Math.floor(Math.random() * action_replies.targetted.length)]
+        else reply = action_replies.unspecified[Math.floor(Math.random() * action_replies.unspecified.length)]
 
-                await interaction.reply({ embeds: [kiss_embed] })
-                break
-            case "pet":
-                const pet_embed: EmbedBuilder = new EmbedBuilder()
-                    .setColor(Color.primary)
+        reply = reply.replace("<user>", `**${user.displayName}**`)
+        if (target) reply = reply.replace("<target>", `**${target.displayName}**`)
 
-                if (target) pet_embed.setTitle(`${interaction.user.displayName} pets ${target.displayName}!`)
-                else pet_embed.setTitle(`${interaction.user.displayName} pets you!`)
+        const embed: EmbedBuilder = new EmbedBuilder()
+            .setColor(Color.primary)
+            .setTitle(reply)
 
-                await interaction.reply({ embeds: [pet_embed] })
-                break
-        }
+        await interaction.reply({ embeds: [embed] })
     }
 }
