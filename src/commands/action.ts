@@ -9,23 +9,23 @@ export const Action: Command = {
         .setContexts([0, 1, 2])
 
         .addSubcommand(subcommand => subcommand
-            .setName("pet")
-            .setDescription("Pet someone.")
-
-            .addUserOption(option => option
-                .setName("target")
-                .setDescription("User to pet.")
-                .setRequired(false)
-            )
-        )
-
-        .addSubcommand(subcommand => subcommand
             .setName("kiss")
             .setDescription("Kiss someone.")
 
             .addUserOption(option => option
                 .setName("target")
                 .setDescription("User to kiss.")
+                .setRequired(false)
+            )
+        )
+
+        .addSubcommand(subcommand => subcommand
+            .setName("pet")
+            .setDescription("Pet someone.")
+
+            .addUserOption(option => option
+                .setName("target")
+                .setDescription("User to pet.")
                 .setRequired(false)
             )
         ),
@@ -35,15 +35,6 @@ export const Action: Command = {
         const target: User | null = interaction.options.getUser("target") ?? null
 
         switch(subcommand) {
-            case "pet":
-                const pet_embed: EmbedBuilder = new EmbedBuilder()
-                    .setColor(Color.primary)
-
-                if (target) pet_embed.setTitle(`${interaction.user.displayName} pets ${target.displayName}!`)
-                else pet_embed.setTitle(`${interaction.user.displayName} pets you!`)
-
-                await interaction.reply({ embeds: [pet_embed] })
-                break
             case "kiss":
                 const kiss_embed: EmbedBuilder = new EmbedBuilder()
                     .setColor(Color.primary)
@@ -52,6 +43,15 @@ export const Action: Command = {
                 else kiss_embed.setTitle(`${interaction.user.displayName} kisses you!`)
 
                 await interaction.reply({ embeds: [kiss_embed] })
+                break
+            case "pet":
+                const pet_embed: EmbedBuilder = new EmbedBuilder()
+                    .setColor(Color.primary)
+
+                if (target) pet_embed.setTitle(`${interaction.user.displayName} pets ${target.displayName}!`)
+                else pet_embed.setTitle(`${interaction.user.displayName} pets you!`)
+
+                await interaction.reply({ embeds: [pet_embed] })
                 break
         }
     }
