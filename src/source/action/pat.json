@@ -1,14 +1,14 @@
 {
     "targetted": [
-        "<user> pet <target>!",
-        "<target> was pet by <user>!",
-        "<user> gave <target> a pet!",
+        "<user> pat <target>!",
+        "<target> was pat by <user>!",
+        "<user> gave <target> a pat!",
         "<user> gave <target> a head pat!"
     ],
     "unspecified": [
-        "<user> pet you!",
-        "You were pet by <user>!",
-        "<user> gave you a pet!",
+        "<user> pat you!",
+        "You were pat by <user>!",
+        "<user> gave you a pat!",
         "<user> gave you a head pat!"
     ]
 }
