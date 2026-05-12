@@ -1,5 +1,7 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, User, AttachmentBuilder, EmbedBuilder } from "discord.js"
-import { Command, Color } from "./../utils/config"
+import { fetchRandom, NbCategories } from "nekos-best.js"
+import { Command, Color, sendError } from "./../utils/config"
+import axios from "axios"
 import fs from "fs"
 
 interface ActionReplies {
@@ -36,12 +38,12 @@ export const Action: Command = {
         )
 
         .addSubcommand(subcommand => subcommand
-            .setName("pet")
-            .setDescription("Pet someone.")
+            .setName("pat")
+            .setDescription("Pat someone.")
 
             .addUserOption(option => option
                 .setName("target")
-                .setDescription("User to pet.")
+                .setDescription("User to pat.")
                 .setRequired(false)
             )
         )
@@ -63,6 +65,15 @@ export const Action: Command = {
         const user: User = interaction.user
         const target: User | null = interaction.options.getUser("target") ?? null
 
+        const gif = (await fetchRandom(subcommand as NbCategories)).results[0]
+
+        if (!gif) {
+            sendError(interaction, "GIF not found")
+            return
+        }
+
+        const attchment: AttachmentBuilder = new AttachmentBuilder(gif.url, { name: `${subcommand}.gif` })
+
         const action_replies: ActionReplies = JSON.parse(fs.readFileSync(`src/source/action/${subcommand}.json`, "utf-8"))
         let reply: string
 
@@ -75,7 +86,8 @@ export const Action: Command = {
         const embed: EmbedBuilder = new EmbedBuilder()
             .setColor(Color.primary)
             .setTitle(reply)
+            .setImage(`attachment://${subcommand}.gif`)
 
-        await interaction.reply({ embeds: [embed] })
+        await interaction.reply({ embeds: [embed], files: [attchment] })
     }
 }
