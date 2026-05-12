@@ -16,6 +16,11 @@ export const Action: Command = {
         .setContexts([0, 1, 2])
 
         .addSubcommand(subcommand => subcommand
+            .setName("blush")
+            .setDescription("Show embarrassment.")
+        )
+
+        .addSubcommand(subcommand => subcommand
             .setName("hug")
             .setDescription("Hug someone.")
 
