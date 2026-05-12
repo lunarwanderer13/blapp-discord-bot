@@ -14,6 +14,17 @@ export const Action: Command = {
         .setContexts([0, 1, 2])
 
         .addSubcommand(subcommand => subcommand
+            .setName("hug")
+            .setDescription("Hug someone.")
+
+            .addUserOption(option => option
+                .setName("target")
+                .setDescription("User to hug.")
+                .setRequired(false)
+            )
+        )
+
+        .addSubcommand(subcommand => subcommand
             .setName("kiss")
             .setDescription("Kiss someone.")
 
