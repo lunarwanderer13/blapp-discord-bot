@@ -9,6 +9,7 @@ import { Weather } from "./commands/weather"
 import { Avatar } from "./commands/avatar"
 import { Color } from "./commands/color"
 import { Pokewiki } from "./commands/pokemon"
+import { Action } from "./commands/action"
 
 export const Commands: Command[] = [
     Ping,
@@ -16,7 +17,8 @@ export const Commands: Command[] = [
     Weather,
     Avatar,
     Color,
-    Pokewiki
+    Pokewiki,
+    Action
 ]
 
 // Import events
