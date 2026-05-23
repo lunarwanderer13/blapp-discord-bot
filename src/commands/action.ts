@@ -1,5 +1,5 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, User, AttachmentBuilder, EmbedBuilder } from "discord.js"
-import { fetchRandom, NbCategories } from "nekos-best.js"
+import { fetchRandom, NbIndividualResponse, NbCategories } from "nekos-best.js"
 import { Command, Color, sendError } from "./../utils/config"
 import fs from "fs"
 
@@ -69,7 +69,7 @@ export const Action: Command = {
         const user: User = interaction.user
         const target: User | null = interaction.options.getUser("target") ?? null
 
-        const gif = (await fetchRandom(subcommand as NbCategories)).results[0]
+        const gif: NbIndividualResponse = (await fetchRandom(subcommand as NbCategories)).results[0]
 
         if (!gif) {
             sendError(interaction, "GIF not found")
@@ -92,6 +92,8 @@ export const Action: Command = {
             .setTitle(reply)
             .setImage(`attachment://${subcommand}.gif`)
 
+        if (gif.artist_name) embed.setAuthor({ name: `Artist: ${gif.artist_name}` })
+        if (gif.artist_name && gif.artist_href) embed.setAuthor({ name: `Artist: ${gif.artist_name}`, url: gif.artist_href })
         if (gif.anime_name) embed.setFooter({ text: `Anime: ${gif.anime_name}`})
 
         await interaction.reply({ embeds: [embed], files: [attchment] })
