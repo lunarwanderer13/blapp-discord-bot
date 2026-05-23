@@ -702,6 +702,11 @@ mime-types@^2.1.12:
   dependencies:
     mime-db "1.52.0"
 
+nekos-best.js@^6.5.3:
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/nekos-best.js/-/nekos-best.js-6.5.3.tgz#45f403d9d0265ba804fd969e411ef01634bb4531"
+  integrity sha512-IzT34MoHcgubw3rK7hUN8I2fO4TkiRTgjDuvGYtHxCfaCFeG0gSblnxekuvHSxNtPUvwtaQVUWzYdl5DuFrDNQ==
+
 object-code@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/object-code/-/object-code-2.0.0.tgz#251754cb38abca927e0844f50e8184e3ed45c386"

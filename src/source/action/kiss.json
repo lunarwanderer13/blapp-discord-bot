@@ -1,0 +1,17 @@
+{
+    "targetted": [
+        "<user> kissed <target>!",
+        "<target> was kissed by <user>!",
+        "<user> gave <target> a kiss!",
+        "<user> smooched <target>!",
+        "<target> was smooched by <user>!"
+    ],
+    "unspecified": [
+        "<user> kissed you!",
+        "You were kissed by <user>!",
+        "<user> gave you a kiss!",
+        "<user> smooched you!",
+        "You were smooched by <user>!"
+    ]
+}
+

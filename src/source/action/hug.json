@@ -1,0 +1,15 @@
+{
+    "targetted": [
+        "<user> hugged <target>!",
+        "<target> was hugged by <user>!",
+        "<user> gave <target> a hug!",
+        "<user> cuddled with <target>!",
+        "<user> and <target> cuddled!"
+    ],
+    "unspecified": [
+        "<user> hugged you!",
+        "<user> gave you a hug!",
+        "<user> cuddled with you!",
+        "<user> and you cuddled!"
+    ]
+}
