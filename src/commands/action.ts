@@ -1,7 +1,6 @@
 import { SlashCommandBuilder, ChatInputCommandInteraction, User, AttachmentBuilder, EmbedBuilder } from "discord.js"
 import { fetchRandom, NbCategories } from "nekos-best.js"
 import { Command, Color, sendError } from "./../utils/config"
-import axios from "axios"
 import fs from "fs"
 
 interface ActionReplies {
