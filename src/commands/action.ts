@@ -92,6 +92,8 @@ export const Action: Command = {
             .setTitle(reply)
             .setImage(`attachment://${subcommand}.gif`)
 
+        if (gif.anime_name) embed.setFooter({ text: `Anime: ${gif.anime_name}`})
+
         await interaction.reply({ embeds: [embed], files: [attchment] })
     }
 }
