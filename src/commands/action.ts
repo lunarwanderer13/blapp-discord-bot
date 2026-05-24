@@ -53,6 +53,11 @@ export const Action: Command = {
         )
 
         .addSubcommand(subcommand => subcommand
+            .setName("pout")
+            .setDescription("Show annoyance.")
+        )
+
+        .addSubcommand(subcommand => subcommand
             .setName("punch")
             .setDescription("Punch someone.")
 
