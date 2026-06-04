@@ -53,6 +53,17 @@ export const Action: Command = {
         )
 
         .addSubcommand(subcommand => subcommand
+            .setName("poke")
+            .setDescription("Poke someone.")
+
+            .addUserOption(option => option
+                .setName("target")
+                .setDescription("User to poke.")
+                .setRequired(false)
+            )
+        )
+
+        .addSubcommand(subcommand => subcommand
             .setName("pout")
             .setDescription("Show annoyance.")
         )
