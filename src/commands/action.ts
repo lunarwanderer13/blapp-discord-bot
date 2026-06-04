@@ -66,6 +66,11 @@ export const Action: Command = {
                 .setDescription("User to punch.")
                 .setRequired(false)
             )
+        )
+
+        .addSubcommand(subcommand => subcommand
+            .setName("smug")
+            .setDescription("Show confidence.")
         ),
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
