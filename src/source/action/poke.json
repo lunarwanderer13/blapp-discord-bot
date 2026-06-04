@@ -1,0 +1,10 @@
+{
+    "targetted": [
+        "<user> poked <target>!",
+        "<target> was poked by <user>!"
+    ],
+    "unspecified": [
+        "<user> poked you!",
+        "You were poked by <user>!"
+    ]
+}
