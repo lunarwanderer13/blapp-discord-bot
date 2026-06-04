@@ -82,6 +82,11 @@ export const Action: Command = {
         .addSubcommand(subcommand => subcommand
             .setName("smug")
             .setDescription("Show confidence.")
+        )
+
+        .addSubcommand(subcommand => subcommand
+            .setName("yawn")
+            .setDescription("Show exhaustion.")
         ),
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
