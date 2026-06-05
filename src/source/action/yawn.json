@@ -1,5 +1,8 @@
 {
     "unspecified": [
-        "<user> yawned!"
+        "<user> yawned!",
+        "<user> is tired!",
+        "<user> is exhausted!",
+        "<user> is sleepy!"
     ]
 }
