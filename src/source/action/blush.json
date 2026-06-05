@@ -1,5 +1,7 @@
 {
     "unspecified": [
-        "<user> blushed!"
+        "<user> blushed!",
+        "<user> is embarrassed!",
+        "<user> is flustered!"
     ]
 }
