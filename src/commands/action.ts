@@ -20,6 +20,11 @@ export const Action: Command = {
         )
 
         .addSubcommand(subcommand => subcommand
+            .setName("cry")
+            .setDescription("Show sadness.")
+        )
+
+        .addSubcommand(subcommand => subcommand
             .setName("hug")
             .setDescription("Hug someone.")
 
