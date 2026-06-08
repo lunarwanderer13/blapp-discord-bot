@@ -25,6 +25,11 @@ export const Action: Command = {
         )
 
         .addSubcommand(subcommand => subcommand
+            .setName("happy")
+            .setDescription("Show happiness.")
+        )
+
+        .addSubcommand(subcommand => subcommand
             .setName("hug")
             .setDescription("Hug someone.")
 
@@ -58,6 +63,17 @@ export const Action: Command = {
         )
 
         .addSubcommand(subcommand => subcommand
+            .setName("poke")
+            .setDescription("Poke someone.")
+
+            .addUserOption(option => option
+                .setName("target")
+                .setDescription("User to poke.")
+                .setRequired(false)
+            )
+        )
+
+        .addSubcommand(subcommand => subcommand
             .setName("pout")
             .setDescription("Show annoyance.")
         )
@@ -71,6 +87,16 @@ export const Action: Command = {
                 .setDescription("User to punch.")
                 .setRequired(false)
             )
+        )
+
+        .addSubcommand(subcommand => subcommand
+            .setName("smug")
+            .setDescription("Show confidence.")
+        )
+
+        .addSubcommand(subcommand => subcommand
+            .setName("yawn")
+            .setDescription("Show exhaustion.")
         ),
 
     async execute(interaction: ChatInputCommandInteraction): Promise<void> {
